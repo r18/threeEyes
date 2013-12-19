@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	h1{
+
+	}
+	ul{
+		background: #f5e6c3;
+		border-top: 1px solid rgba(0, 0, 0, .2);
+		box-shadow(rgba(255, 255, 255, .3) 0 1px 0 inset);
+	}
+</style>
+<script>
+	window.onload = function(){
+
+		alert("hogehoge");
+		var a1 = document.getElementById("1-1");
+		var a2 = document.getElementById("1-2");
+		var a3 = document.getElementById("1-3");
+		var b1 = document.getElementById("2-1");
+		var b2 = document.getElementById("2-2");
+		var b3 = document.getElementById("2-3");
+		var c1 = document.getElementById("3-1");
+		var c2 = document.getElementById("3-2");
+		var c3 = document.getElementById("3-3");
+
+
+		a1.onclick = clicked(a1);
+		a2.onclick = clicked(a2);
+		a3.onclick = clicked(a3);
+		b1.onclick = clicked(b1);
+		b2.onclick = clicked(b2);
+		b3.onclick = clicked(b3);
+		c1.onclick = clicked(c1);
+		c2.onclick = clicked(c2);
+		c3.onclick = clicked(c3);
+
+		enemy_clicked(c2);
+	}
+
+	function clicked(_id){
+		return function(){_id.style.background="red";_id.onclick=""};
+	}
+
+	function enemy_clicked(_id){
+		_id.style.background="blue";
+		_id.onclick="";
+	}
+</script>
+<body>
+	<h2>Hello Haruma!!</h2>
+<table border="1" width="500" height="500" cellspacing="0" cellpadding="5" bordercolor="#333333" >
+<tr>
+	<td id="1-1">1-1</td>
+	<td id="1-2">1-2</td>
+	<td id="1-3">1-3</td>
+</tr>
+<tr>
+	<td id="2-1">2-1</td>
+	<td id="2-2">2-2</td>
+	<td id="2-3">2-3</td>
+</tr>
+<tr>
+	<td id="3-1">3-1</td>
+	<td id="3-2">3-2</td>
+	<td id="3-3">3-3</td>
+</tr>
+</table> 
+</body>
+</html>
