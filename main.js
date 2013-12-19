@@ -1,4 +1,6 @@
 
+	var squares = [] ;
+
 	function main(){
 		alert("hogehoge");
 		var a1 = document.getElementById("1-1");
@@ -11,6 +13,8 @@
 		var c2 = document.getElementById("3-2");
 		var c3 = document.getElementById("3-3");
 
+		squares = [a1,a2,a3,b1,b2,b3,c1,c2,c3];
+
 
 		a1.onclick = clicked(a1);
 		a2.onclick = clicked(a2);
@@ -22,11 +26,17 @@
 		c2.onclick = clicked(c2);
 		c3.onclick = clicked(c3);
 
-		enemy_clicked(c2);
+		enemy_clicked(c1);
 	}
 
 	function clicked(_id){
-		return function(){_id.style.background="red";_id.onclick=""};
+		return function(){
+			_id.style.background="red";
+			_id.onclick="";
+			var enemySq = squares[Math.floor(Math.random()*9)];
+			enemy_clicked(enemySq);
+
+		};
 	}
 
 	function enemy_clicked(_id){
