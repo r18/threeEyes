@@ -28,78 +28,48 @@
 
 		enemy_clicked(c1);
 	}
+
 	function eval(){
-		if(point0 + point1 + point2 == 30){
-			alert("you win");
-		}else if(point0 + point1 + point2 == 3){
-			alert("enemy win");
-		}
+		var result = [];
+		result.push(checkSum(0,1,2));
+		result.push(checkSum(3,4,5));
+		result.push(checkSum(6,7,8));
+		result.push(checkSum(0,3,6));
+		result.push(checkSum(1,4,7));
+		result.push(checkSum(2,5,8));
+		result.push(checkSum(0,4,8));
+		result.push(checkSum(2,4,6));
+		for(var i=0; i<8; i++){
+			if(result[i] == 30){
+				alert("You win!!");
+			}
+			if(result[i] == 3){
+				alert("You lose!!");
+			}
+		}			
 	}
-	
-	function check(){
-		if(squares[0].style.background == "red"){
-			var point0 = 10;
-		}else if(suqares[0].style.background == "blue"){
-			var point0 = 1;
+
+	function checkSum(a,b,c){
+		return check(a)+check(b)+check(c);
+	}
+
+	function check(i){
+		if(squares[i].style.background == "none repeat scroll 0% 0% red"){
+			return 10;
+		}else if(squares[i].style.background == "none repeat scroll 0% 0% blue"){
+			return 1;
 		}else{
-			var point0 = 0;
+			return  0;
 		}
-		if(squares[1].style.background == "red"){
-			var point1 = 10;
-		}else if(suqares[1].style.background == "blue"){
-			var point1 = 1;
-		}else{
-			var point1 = 0;
-		}
-		if(squares[2].style.background == "red"){
-			var point2 = 10;
-		}else if(suqares[2].style.background == "blue"){
-			var point2 = 1;
-		}else{
-			var point2 = 0;
-		}
-		if(squares[3].style.background == "red"){
-			var point3 = 10;
-		}else if(suqares[3].style.background == "blue"){
-			var point3 = 1;
-		}else{
-			var point3 = 0;
-		}
-		if(squares[4].style.background == "red"){
-			var point4 = 10;
-		}else if(suqares[4].style.background == "blue"){
-			var point4 = 1;
-		}else{
-			var point4 = 0;
-		}
-		if(squares[5].style.background == "red"){
-			var point5 = 10;
-		}else if(suqares[5].style.background == "blue"){
-			var point5 = 1;
-		}else{
-			var point5 = 0;
-		}
-		if(squares[6].style.background == "red"){
-			var point6 = 10;
-		}else if(suqares[6].style.background == "blue"){
-			var point6 = 1;
-		}else{
-			var point6 = 0;
-		}
-		if(squares[8].style.background == "red"){
-			var point8 = 10;
-		}else if(suqares[8].style.background == "blue"){
-			var point8 = 1;
-		}else{
-			var point8 = 0;
-		}
-		
+
 	}
 
 	function clicked(_id){
 		return function(){
 			_id.style.background="red";
 			_id.onclick="";
+
+			eval();
 			var enemySq = squares[Math.floor(Math.random()*9)];
 			while(enemySq.onclick == null){
 				console.log(enemySq.id);
@@ -107,7 +77,7 @@
 
 			}
 			enemy_clicked(enemySq);
-
+			eval();
 		};
 	}
 
